@@ -3627,10 +3627,25 @@ body {
     padding: 60px 20px;
   }
   
+  
+  .top-nav {
+    transform: translateX(0);
+    width: 100%;
+    border-radius: 0;
+  }
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .cv-print-header h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
   /* Top Nav fixes */
   .top-nav {
     left: 0;
     width: 100%;
+    transform: none;
+    border-radius: 0;
   }
   .top-nav-inner {
     padding: 0 15px;
