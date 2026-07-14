@@ -627,12 +627,15 @@ body {
 }
 
 .section-title {
-  font-size: 32px;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
   font-weight: 600;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 12px;
+  text-wrap: balance;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 .section-title::after {
@@ -3633,9 +3636,7 @@ body {
     width: 100%;
     border-radius: 0;
   }
-  .section-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
+  
   .cv-print-header h1 {
     font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
