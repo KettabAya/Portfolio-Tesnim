@@ -3655,3 +3655,47 @@ body {
     display: none; /* Save space on mobile top nav */
   }
 }
+
+/* ==========================================================================
+   FULL PAGE MODAL OVERRIDES
+   ========================================================================== */
+
+/* CV Document Full Page */
+.cv-modal-overlay {
+  padding: 0 !important;
+}
+
+.cv-modal-card {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+/* Project Details Full Page */
+.hud-overlay {
+  padding: 0 !important;
+}
+
+.project-modal-card.hud-decoder-wrapper {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  padding: 40px !important; /* give inner breathing room since it touches edges */
+}
+
+@media (max-width: 767px) {
+  .project-modal-card.hud-decoder-wrapper {
+    padding: 20px !important;
+  }
+  .cv-modal-card {
+    padding: 20px !important;
+  }
+}
