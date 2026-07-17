@@ -711,35 +711,30 @@ body {
 /* Carousel layout */
 .carousel-outer {
   position: relative;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
 }
 .carousel-viewport {
-  flex: 1;
+  width: 100%;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  /* padding removed from viewport so it doesn't clip */
+  scroll-snap-type: x mandatory;
 }
 
 .carousel-viewport::-webkit-scrollbar {
-  display: none; /* Hide chrome scrollbar */
+  display: none;
 }
 
 .carousel-track {
   display: flex;
-  gap: 30px;
-  padding: 10px 24px 10px max(24px, calc(50vw - 600px + 24px));
+  gap: 20px;
+  padding: 10px 0;
 }
 
 /* Project cards */
 .project-card {
-  flex: 0 0 340px;
+  flex: 0 0 calc((100% - 40px) / 3);
+  scroll-snap-align: start;
   border-radius: 20px;
   padding: 16px;
   display: flex;
@@ -3891,5 +3886,16 @@ body {
   }
   .project-page-title {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+}
+\n
+@media (max-width: 992px) {
+  .project-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+@media (max-width: 767px) {
+  .project-card {
+    flex: 0 0 100%;
   }
 }
