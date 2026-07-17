@@ -3875,7 +3875,7 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .project-page-split {
     grid-template-columns: 1fr;
   }
@@ -3889,6 +3889,6 @@ body {
     padding: 20px 16px 80px;
   }
   .project-page-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 }
