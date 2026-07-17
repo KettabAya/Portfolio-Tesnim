@@ -723,8 +723,7 @@ body {
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-left: max(24px, calc(50vw - 600px + 24px));
-  padding-right: max(24px, calc(50vw - 600px + 24px));
+  /* padding removed from viewport so it doesn't clip */
 }
 
 .carousel-viewport::-webkit-scrollbar {
@@ -734,7 +733,7 @@ body {
 .carousel-track {
   display: flex;
   gap: 30px;
-  padding: 10px 0;
+  padding: 10px 24px 10px max(24px, calc(50vw - 600px + 24px));
 }
 
 /* Project cards */
