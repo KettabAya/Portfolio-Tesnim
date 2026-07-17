@@ -712,14 +712,19 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
-
 .carousel-viewport {
   flex: 1;
   overflow-x: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Hide standard firefox scrollbar */
+  scrollbar-width: none;
+  padding-left: max(24px, calc(50vw - 600px + 24px));
+  padding-right: max(24px, calc(50vw - 600px + 24px));
 }
 
 .carousel-viewport::-webkit-scrollbar {
