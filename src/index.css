@@ -3700,3 +3700,185 @@ body {
     padding: 20px !important;
   }
 }
+
+/* ==========================================================================
+   TRUE FULL PAGE PROJECT VIEW REDESIGN
+   ========================================================================== */
+
+.full-page-project-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--base-bg);
+  background-image: radial-gradient(circle at 50% 50%, var(--violet-bg) 0%, var(--base-bg) 70%);
+  z-index: 2000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Top Navigation Bar */
+.project-page-nav {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 20px;
+}
+
+.back-to-portfolio-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.back-to-portfolio-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Hero Section */
+.project-page-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-page-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-page-category {
+  color: var(--accent-pink);
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.project-page-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Split Layout */
+.project-page-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Sticky Image Gallery */
+.project-gallery-wrapper {
+  position: sticky;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-gallery-main {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-gallery-main img:hover {
+  transform: scale(1.02);
+  cursor: zoom-in;
+}
+
+/* Content Area */
+.project-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-description-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.project-section-header {
+  font-size: 14px;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Telemetry Items Override for new layout */
+.project-content-area .hud-accomplishment-item {
+  padding: 16px 20px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-left-width: 4px !important;
+  margin-bottom: 16px;
+}
+.project-content-area .hud-line-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .project-page-split {
+    grid-template-columns: 1fr;
+  }
+  .project-gallery-wrapper {
+    position: relative;
+    top: 0;
+  }
+}

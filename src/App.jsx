@@ -1189,150 +1189,110 @@ function App() {
         </div>
       )}
 
-      {/* Project Details Modal Overlay */}
+      {/* TRUE FULL PAGE PROJECT VIEW */}
       {selectedProject && (
-        <div className="cv-modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="cv-modal-card glass-element project-modal-card" onClick={(e) => e.stopPropagation()}>
-            <div className="full-page-inner-container" style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '40px 20px' }}>
-              <div className="cv-modal-header" style={{ paddingBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: '16px' }}>
-              <div className="header-meta-left">
-                <h2>Project Information</h2>
-                <span>Aya Tesnim Kettab // Case Study Decoder</span>
-              </div>
-              <div className="header-actions-right">
-                <button className="cv-action-btn close" onClick={() => setSelectedProject(null)} aria-label="Close Project Details">
-                  <FaTimes />
-                </button>
+        <div className="full-page-project-overlay">
+          <div className="project-page-container">
+            
+            {/* Top Navigation */}
+            <div className="project-page-nav">
+              <button className="back-to-portfolio-btn glass-element" onClick={() => setSelectedProject(null)} aria-label="Back to Portfolio">
+                <FaChevronLeft /> Back to Portfolio
+              </button>
+            </div>
+
+            {/* Hero Section */}
+            <div className="project-page-hero">
+              <span className="project-page-category">{selectedProject.category}</span>
+              <h1 className="project-page-title">{selectedProject.title}</h1>
+              <div className="project-page-stack">
+                {selectedProject.tools.map((tool, i) => (
+                  <span key={i} className="hud-tech-pill" style={{ cursor: 'default' }}>
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
 
-            <div className="hud-decoder-wrapper modal-hud-decoder" style={{ border: 'none', background: 'transparent', boxShadow: 'none', padding: '0px' }}>
-              <div className="hud-decoder-header" style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '16px', marginBottom: '20px' }}>
-                <div className="hud-title-block">
-                  <span className="hud-meta-indicator">PROJECT // DECODER_v1.0</span>
-                  <h3 style={{ fontSize: '24px', color: '#fff', marginTop: '4px', fontWeight: '700' }}>{selectedProject.title}</h3>
-                  <span className="hud-category" style={{ color: 'var(--accent-pink)', fontSize: '12px' }}>{selectedProject.category}</span>
+            {/* Split Layout */}
+            <div className="project-page-split">
+              
+              {/* Sticky Image Gallery */}
+              <div className="project-gallery-wrapper">
+                <div className="project-gallery-main">
+                  <img 
+                    src={selectedProject.images && selectedProject.images.length > 1 ? selectedProject.images[activeImageIndex] : selectedProject.image} 
+                    alt={selectedProject.title} 
+                    onClick={() => setIsLightboxOpen(true)}
+                  />
                 </div>
-                <div className="hud-tech-block">
-                  <span className="hud-meta-indicator">STACK // MODULES</span>
-                  <div className="hud-tech-pills">
-                    {selectedProject.tools.map((tool, i) => (
-                      <span 
-                        key={i} 
-                        className={`hud-tech-pill ${selectedSkill === tool ? 'skill-active-glow' : ''}`}
-                        onClick={() => setSelectedSkill(tool === selectedSkill ? null : tool)}
-                        title="Click to filter by this tool"
-                      >
-                        {tool}
-                      </span>
-                    ))}
+                {selectedProject.images && selectedProject.images.length > 1 && (
+                  <div className="multi-image-slider" style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
+                    <button className="slider-arrow prev" onClick={() => setActiveImageIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1))} style={{ position: 'relative', left: 0, transform: 'none' }}>
+                      <FaChevronLeft />
+                    </button>
+                    <div className="slider-dots" style={{ position: 'relative', bottom: 0, transform: 'none' }}>
+                      {selectedProject.images.map((_, idx) => (
+                        <span key={idx} className={`slider-dot ${idx === activeImageIndex ? 'active' : ''}`} onClick={() => setActiveImageIndex(idx)}></span>
+                      ))}
+                    </div>
+                    <button className="slider-arrow next" onClick={() => setActiveImageIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1))} style={{ position: 'relative', right: 0, transform: 'none' }}>
+                      <FaChevronRight />
+                    </button>
                   </div>
-                </div>
+                )}
               </div>
 
-               <div className="hud-decoder-body project-modal-grid">
-                <div className="hud-image-wrapper">
-                  <div className="hud-image-box multi-image-slider">
-                    {selectedProject.images && selectedProject.images.length > 1 ? (
-                      <>
-                        <button 
-                          className="slider-arrow prev" 
-                          onClick={() => setActiveImageIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1))}
-                          aria-label="Previous image"
-                        >
-                          <FaChevronLeft />
-                        </button>
-                        <img 
-                          src={selectedProject.images[activeImageIndex]} 
-                          alt={`${selectedProject.title} screenshot ${activeImageIndex + 1}`} 
-                          onClick={() => setIsLightboxOpen(true)}
-                          style={{ cursor: 'zoom-in' }}
-                        />
-                        <button 
-                          className="slider-arrow next" 
-                          onClick={() => setActiveImageIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1))}
-                          aria-label="Next image"
-                        >
-                          <FaChevronRight />
-                        </button>
-                        
-                        {/* Dot navigation indicator */}
-                        <div className="slider-dots">
-                          {selectedProject.images.map((_, idx) => (
-                            <span 
-                              key={idx} 
-                              className={`slider-dot ${idx === activeImageIndex ? 'active' : ''}`}
-                              onClick={() => setActiveImageIndex(idx)}
-                            ></span>
-                          ))}
+              {/* Scrollable Content Details */}
+              <div className="project-content-area">
+                <div>
+                  <div className="project-section-header">
+                    <FaTerminal /> Overview
+                  </div>
+                  <p className="project-description-text">{selectedProject.description}</p>
+                </div>
+
+                {selectedProject.details && (
+                  <div>
+                    <div className="project-section-header">
+                      <FaDna /> Key Accomplishments & Metrics
+                    </div>
+                    <div className="hud-accomplishments-timeline">
+                      {selectedProject.details.map((detail, idx) => (
+                        <div key={idx} className="hud-accomplishment-item">
+                          <span className="hud-line-num">[{(idx + 1).toString().padStart(2, '0')}]</span>
+                          <p className="hud-line-text" style={{ margin: 0, color: 'rgba(255,255,255,0.9)' }}>{detail}</p>
                         </div>
-                      </>
-                    ) : (
-                      <img 
-                        src={selectedProject.image} 
-                        alt={selectedProject.title} 
-                        onClick={() => setIsLightboxOpen(true)}
-                        style={{ cursor: 'zoom-in' }}
-                      />
-                    )}
-                    <div className="hud-image-scanner"></div>
-                    <div className="hud-status-indicator">
-                      {selectedProject.images && selectedProject.images.length > 1 ? `SCREEN_0${activeImageIndex + 1}_ACTIVE` : 'SYSTEM_ACTIVE'}
+                      ))}
                     </div>
                   </div>
+                )}
 
-                  <div className="hud-telemetry-box glass-element">
-                    <div className="telemetry-window-dots">
-                      <span className="dot red"></span>
-                      <span className="dot yellow"></span>
-                      <span className="dot green"></span>
-                      <span className="window-title">SYSTEM_DIAGNOSTIC_LOG</span>
-                    </div>
-                    <div className="telemetry-line">
-                      <span className="telemetry-tag green">[SYS]</span>
-                      <span className="telemetry-log">PRJ_0{selectedProject.id || 1} // ACTIVE_NODE</span>
-                    </div>
-                    <div className="telemetry-line">
-                      <span className="telemetry-tag purple">[LOG]</span>
-                      <span className="telemetry-log">COMPILATION: SUCCESSFUL</span>
-                    </div>
-                    <div className="telemetry-line">
-                      <span className="telemetry-tag cyan">[SEC]</span>
-                      <span className="telemetry-log">INTEGRITY: SECURE_HASH // VERIFIED</span>
-                    </div>
-                    <div className="telemetry-line">
-                      <span className="telemetry-tag pink">[MOD]</span>
-                      <span className="telemetry-log">STACK: {selectedProject.tools.join(" // ")}</span>
-                    </div>
+                {/* System Diagnostic Log embedded at bottom */}
+                <div className="hud-telemetry-box glass-element" style={{ marginTop: '20px' }}>
+                  <div className="telemetry-window-dots">
+                    <span className="dot red"></span>
+                    <span className="dot yellow"></span>
+                    <span className="dot green"></span>
+                    <span className="window-title">SYSTEM_DIAGNOSTIC_LOG</span>
                   </div>
-                </div>
-
-                <div className="hud-details-box">
-                  <div className="hud-section-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-cyan)', fontSize: '13px', letterSpacing: '1px', marginBottom: '10px' }}>
-                    <FaTerminal className="console-icon" /> <span>OVERVIEW_LOG</span>
+                  <div className="telemetry-line">
+                    <span className="telemetry-tag green">[SYS]</span>
+                    <span className="telemetry-log">PRJ_0{selectedProject.id || 1} // ACTIVE_NODE</span>
                   </div>
-                  <p className="hud-description" style={{ fontSize: '14px', lineHeight: '1.6', color: 'rgba(255,255,255,0.75)', marginBottom: '24px' }}>{selectedProject.description}</p>
-
-                  <div className="hud-section-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-cyan)', fontSize: '13px', letterSpacing: '1px', marginBottom: '10px' }}>
-                    <FaDna className="console-icon" /> <span>KEY_ACCOMPLISHMENTS_METRICS</span>
+                  <div className="telemetry-line">
+                    <span className="telemetry-tag purple">[LOG]</span>
+                    <span className="telemetry-log">COMPILATION: SUCCESSFUL</span>
                   </div>
-                  <div className="hud-accomplishments-timeline">
-                    {selectedProject.details.map((detail, idx) => (
-                      <div 
-                        key={idx} 
-                        className={`hud-accomplishment-item ${idx === hudActiveLine ? 'highlighted' : ''}`}
-                        onClick={() => setHudActiveLine(idx)}
-                      >
-                        <span className="hud-line-num">[{(idx + 1).toString().padStart(2, '0')}]</span>
-                        <p className="hud-line-text">{detail}</p>
-                      </div>
-                    ))}
+                  <div className="telemetry-line">
+                    <span className="telemetry-tag cyan">[SEC]</span>
+                    <span className="telemetry-log">INTEGRITY: SECURE_HASH // VERIFIED</span>
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
-        </div>
         </div>
       )}
 
