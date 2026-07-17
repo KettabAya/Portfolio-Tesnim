@@ -727,13 +727,17 @@ body {
 
 .carousel-track {
   display: flex;
-  gap: 20px;
-  padding: 10px 0;
+  gap: 30px;
+  /* The magic padding: 
+     Left aligns the first card with the 1200px max-width container.
+     Right padding gives a nice 24px edge when fully scrolled. */
+  padding: 20px max(24px, calc(50vw - 600px + 24px));
+  padding-right: 24px;
 }
 
 /* Project cards */
 .project-card {
-  flex: 0 0 calc((100% - 40px) / 3);
+  flex: 0 0 340px;
   scroll-snap-align: start;
   border-radius: 20px;
   padding: 16px;
@@ -3889,13 +3893,5 @@ body {
   }
 }
 \n
-@media (max-width: 992px) {
-  .project-card {
-    flex: 0 0 calc((100% - 20px) / 2);
-  }
-}
-@media (max-width: 767px) {
-  .project-card {
-    flex: 0 0 100%;
-  }
-}
+
+
