@@ -794,10 +794,9 @@ function App() {
           </div>
         </section>
 
-        {/* My Projects Carousel - Full Bleed */}
-      </div> {/* CLOSE APP WRAPPER FOR FULL BLEED CAROUSEL */}
-      <section className="full-bleed-carousel-section" data-aos="fade-up" id="designs" style={{ width: '100%', padding: '80px 0' }}>
-        <div className="section-header" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+        {/* My Projects Carousel */}
+        <section className="section-container " data-aos="fade-up" id="designs">
+          <div className="section-header">
             <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2 className="section-title">My Projects</h2>
@@ -878,12 +877,6 @@ function App() {
             </div>
           </div>
         </section>
-        
-        {/* REOPEN APP WRAPPER */}
-        <div className="app-wrapper" style={{ paddingTop: '0' }}>
-
-
-
         {/* Dynamic Interactive Skills Matrix */}
         <section className="section-container " data-aos="fade-up" id="skills">
           <div className="section-header">
