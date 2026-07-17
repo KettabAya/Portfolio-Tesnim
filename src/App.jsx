@@ -1047,7 +1047,8 @@ function App() {
             <FaTimes />
           </button>
           <div className="cv-modal-card glass-element" onClick={(e) => e.stopPropagation()}>
-            <div className="cv-modal-header">
+            <div className="full-page-inner-container" style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '40px 20px' }}>
+              <div className="cv-modal-header">
               <div className="header-meta-left">
                 <h2>Digital CV Document</h2>
                 <span>Aya Tesnim Kettab // Master's Degree AI</span>
@@ -1183,6 +1184,7 @@ function App() {
               </div>
             </div>
             </div>
+            </div>
           </div>
         </div>
       )}
@@ -1190,8 +1192,9 @@ function App() {
       {/* Project Details Modal Overlay */}
       {selectedProject && (
         <div className="cv-modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="cv-modal-card glass-element project-modal-card" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '1000px', width: '92%' }}>
-            <div className="cv-modal-header" style={{ paddingBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: '16px' }}>
+          <div className="cv-modal-card glass-element project-modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="full-page-inner-container" style={{ maxWidth: '1400px', margin: '0 auto', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '40px 20px' }}>
+              <div className="cv-modal-header" style={{ paddingBottom: '16px', borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: '16px' }}>
               <div className="header-meta-left">
                 <h2>Project Information</h2>
                 <span>Aya Tesnim Kettab // Case Study Decoder</span>
@@ -1329,6 +1332,7 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       )}
 

@@ -1132,7 +1132,7 @@ body {
   
   .glass-hero-card {
     padding: 30px;
-    min-height: 280px;
+    min-height: 55vh; min-height: 400px;
   }
   
   .project-card {
@@ -3075,7 +3075,7 @@ body {
 }
 
 .project-modal-grid .hud-image-box {
-  height: 280px;
+  height: 55vh; min-height: 400px;
   background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
@@ -3673,6 +3673,8 @@ body {
   border-radius: 0 !important;
   margin: 0 !important;
   border: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 /* Project Details Full Page */
@@ -3689,6 +3691,8 @@ body {
   margin: 0 !important;
   border: none !important;
   padding: 40px !important; /* give inner breathing room since it touches edges */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 @media (max-width: 767px) {
