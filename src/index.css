@@ -728,11 +728,18 @@ body {
 .carousel-track {
   display: flex;
   gap: 30px;
-  /* The magic padding: 
-     Left aligns the first card with the 1200px max-width container.
-     Right padding gives a nice 24px edge when fully scrolled. */
-  padding: 20px max(24px, calc(50vw - 600px + 24px));
-  padding-right: 24px;
+  /* Left aligns the first card with the 1200px max-width container. */
+  padding: 20px 0 20px max(24px, calc(50vw - 600px + 24px));
+}
+
+/* This magic spacer ensures the last cards can align to the left grid 
+   instead of being awkwardly pulled to the right edge of the screen! */
+.carousel-track::after {
+  content: '';
+  flex: 0 0 max(24px, calc(50vw - 600px + 24px));
+  /* We give it enough width so the last card can reach the left edge 
+     without the browser stopping the scroll early. */
+  padding-right: 60vw; 
 }
 
 /* Project cards */
