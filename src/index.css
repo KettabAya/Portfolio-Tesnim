@@ -710,36 +710,23 @@ body {
 
 /* Carousel layout */
 .carousel-outer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
+  padding: 20px 0;
 }
 .carousel-viewport {
-  flex: 1;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  /* padding removed from viewport so it doesn't clip */
+  width: 100%;
+  overflow: visible;
 }
-
-.carousel-viewport::-webkit-scrollbar {
-  display: none; /* Hide chrome scrollbar */
-}
-
 .carousel-track {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 30px;
-  padding: 10px 24px 10px max(24px, calc(50vw - 600px + 24px));
+  padding: 10px 0;
 }
 
 /* Project cards */
 .project-card {
-  flex: 0 0 340px;
+  width: 100%;
   border-radius: 20px;
   padding: 16px;
   display: flex;
@@ -1141,7 +1128,7 @@ body {
   }
   
   .project-card {
-    flex: 0 0 280px;
+    width: 100%;
   }
   
   .project-image-box {
@@ -3598,9 +3585,7 @@ body {
   }
 
   /* Project Cards */
-  .carousel-track {
-    grid-template-columns: 1fr;
-  }
+  
   
   /* Skills Grid */
   .skills-grid {

@@ -815,14 +815,7 @@ function App() {
                 <span className="total-index">0{filteredProjects.length}</span>
               </div>
             </div>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button className="nav-arrow glass-element" onClick={() => scrollCarousel('left')} aria-label="Scroll Left">
-                <FaChevronLeft />
-              </button>
-              <button className="nav-arrow glass-element" onClick={() => scrollCarousel('right')} aria-label="Scroll Right">
-                <FaChevronRight />
-              </button>
-            </div>
+            <div style={{ display: 'none' }}></div>
           </div>
 
           <div className="carousel-outer">
