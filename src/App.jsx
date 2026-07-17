@@ -144,7 +144,8 @@ const SKILLS = {
     { name: "Java", glow: "#87F5F5" },
     { name: "JavaScript", glow: "#87F5F5" },
     { name: "TypeScript", glow: "#87F5F5" },
-    { name: "Dart", glow: "#87F5F5" }
+    { name: "Dart", glow: "#87F5F5" },
+    { name: "PHP", glow: "#87F5F5" }
   ],
   development: [
     { name: "HTML5", glow: "#F042FF" },
