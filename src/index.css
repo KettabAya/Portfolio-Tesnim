@@ -1513,7 +1513,8 @@ body {
 
 .contact-details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* Use a 2x2 grid on desktop to ensure long emails fit perfectly without truncation */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -3507,13 +3508,15 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   .contact-details-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px; /* Keep 2x2 grid on laptops */
   }
 }
 
 /* 3. Portrait Tablets & Mobile Transition (768px - 991px) */
 @media (max-width: 991px) {
+  .contact-details-grid {
+    grid-template-columns: 1fr;
+  }
   /* CV Document Layout */
   .cv-printable-body {
     padding: 30px;
