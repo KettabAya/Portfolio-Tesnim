@@ -1558,9 +1558,8 @@ body {
 .contact-value {
   font-size: 15px;
   font-weight: 500;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 /* ==========================================================================
@@ -3559,6 +3558,15 @@ body {
 
 /* 4. Mobile Devices (Max 767px) */
 @media (max-width: 767px) {
+  .contact-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  .contact-link-item {
+    padding: 16px;
+    gap: 12px;
+  }
+  
   /* Sidebar to Bottom Dock */
   .hud-sidebar-console {
     top: auto;
