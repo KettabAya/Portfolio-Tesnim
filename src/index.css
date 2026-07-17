@@ -3482,14 +3482,7 @@ body {
    ========================================================================== */
 
 /* 1. Ultra-Wide Screens (1600px+) */
-@media (min-width: 1600px) {
-  .app-wrapper {
-    max-width: 1600px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
-  }
-}
+
 
 /* 2. Laptops & Large Tablets (992px - 1200px) */
 @media (max-width: 1200px) {
